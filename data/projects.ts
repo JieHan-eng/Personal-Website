@@ -19,6 +19,9 @@ export const projects: Project[] = [
       "Anam AI voice avatar for conversational onboarding.",
       "Pitch video on YouTube showcasing capabilities.",
     ],
+    image: "/agentverse-team.png",
+    video: "/AI-Onboarding-Agent.mov",
+    videoPortrait: true,
   },
   {
     id: "hackabot",
@@ -37,6 +40,13 @@ export const projects: Project[] = [
       "2025: Computer-vision-based navigation for sensor-less bot.",
       "Sharpened vibe coding and rapid iteration.",
     ],
+    images: [
+      "/hackabot-2024-team.png",
+      "/hackabot-2025-nav.png",
+    ],
+    imagePositions: ["right center", "center"],
+    video: "/hackabot-video.mp4",
+    videoPortrait: true,
   },
   {
     id: "line-following-buggy",
@@ -46,12 +56,15 @@ export const projects: Project[] = [
       "University of Manchester (Sep 2024 – Jun 2025). Led a team of 5 as lead coder for a line-following buggy with a PID control algorithm on the MCU. Authored design documentation, test plans, and final reports; presented results to stakeholders. Designed chassis layout, sensor placement, and wiring diagrams; integrated motors, sensors, and MCU. Managed project budget and component selection; created promotional materials and a pitch.",
     tech: ["Embedded C", "PID control", "MCU", "Sensors", "Motors"],
     role: "Team lead & lead coder (5 people)",
-    links: [],
+    links: [
+      { label: "Final report (PDF)", href: "/esp-final-report.pdf" },
+    ],
     impact: [
       "Design docs, test plans, reports; presented to stakeholders.",
       "Chassis, sensor placement, wiring; motors, sensors, MCU integration.",
       "Budget, component selection; promotional materials and pitch.",
     ],
+    image: "/line-following-buggy.png",
   },
   {
     id: "lattice-internship",
@@ -67,6 +80,8 @@ export const projects: Project[] = [
       "Restructured example projects for faster customer adoption.",
       "Critical DDR3 IP bug fixes improving reliability ahead of release.",
     ],
+    images: ["/lattice-team.png", "/lattice-presenting.png"],
+    imagePositions: ["center", "right top"],
   },
   {
     id: "amd-internship",
@@ -82,5 +97,6 @@ export const projects: Project[] = [
       "Register comparison tool improving data integrity and debug turnaround.",
       "Workflow integration reducing manual steps and increasing repeatability.",
     ],
+    images: ["/amd-meeting.png", "/amd-id.png"],
   },
 ];

@@ -11,7 +11,7 @@ export default function Projects() {
       id={SECTION_IDS.projects}
       className="scroll-mt-20 py-16 px-4 sm:px-6"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function Projects() {
         >
           Flagship work: hackathons, internships, and university projects.
         </motion.p>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-10">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
