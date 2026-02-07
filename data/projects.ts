@@ -7,7 +7,7 @@ export const projects: Project[] = [
     name: "AI Onboarding Agent",
     tagline: "FAQs, HR/IT email drafts, and Anam AI voice avatar for new hires.",
     description:
-      "AgentVerse Hackathon (UCL London). Collaborated with a team of 6 to build an AI onboarding agent that answers FAQs and drafts HR/IT emails. Integrated GitHub and Slack APIs to ground responses in current projects and updates; prototyped an Anam AI voice avatar enabling conversational onboarding. Produced and published a creative pitch video on YouTube.",
+      "AgentVerse Hackathon (UCL London, Nov 2025). Collaborated with a team of 6 to build an AI onboarding agent that answers FAQs and drafts HR/IT emails for new hires. Integrated GitHub and Slack APIs to ground responses in current projects and organisational updates; prototyped an Anam AI voice avatar for conversational onboarding. Produced and published a creative pitch video on YouTube.",
     tech: ["LLM/AI", "GitHub API", "Slack API", "Anam AI"],
     role: "Team of 6 — integration, APIs, voice avatar",
     links: [
@@ -65,6 +65,20 @@ export const projects: Project[] = [
       "Budget, component selection; promotional materials and pitch.",
     ],
     image: "/line-following-buggy.png",
+  },
+  {
+    id: "quantum-shors",
+    name: "Quantum algorithms – Shor's algorithm",
+    tagline: "University of Manchester project: theory, Qiskit implementation, and IBM quantum hardware. Report expected June 2026.",
+    description:
+      "University of Manchester project (Sep 2025 – Jun 2026). A blended approach: self-directed study of quantum computing foundations (quantum gates, superposition, interference, entanglement) and hands-on implementation in Python using Qiskit, with simulation and execution on IBM's online quantum platform. The design follows the standard Shor's algorithm formulation; circuit diagrams are used to visualise gates and sequences. A classical counterpart in Python provides a baseline. Metrics: execution time, resources (qubits, circuit depth, gates), and scalability. Report in progress; expected June 2026.",
+    tech: ["Python", "Qiskit", "IBM Quantum", "Quantum algorithms", "Number theory"],
+    role: "University of Manchester — solo project and report",
+    links: [],
+    impact: [
+      "Theoretical study and analysis of Shor's algorithm; implementation and testing on simulators and real IBM hardware.",
+      "Classical baseline and performance comparison; report expected June 2026.",
+    ],
   },
   {
     id: "lattice-internship",

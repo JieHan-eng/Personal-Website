@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { SECTION_IDS } from "@/lib/constants";
 
@@ -12,6 +13,35 @@ type ContentBlock = { type: "p"; text: string } | { type: "list"; items: string[
 
 function stripBold(text: string): string {
   return text.replace(/\*\*(.+?)\*\*/g, "$1");
+}
+
+// Parse inline markdown links [text](url) and return React nodes (text + <a>).
+function renderTextWithLinks(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = linkRe.exec(text)) !== null) {
+    if (m.index > lastIndex) {
+      parts.push(stripBold(text.slice(lastIndex, m.index)));
+    }
+    parts.push(
+      <a
+        key={m.index}
+        href={m[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent dark:text-accent-muted hover:underline font-medium"
+      >
+        {m[1]}
+      </a>
+    );
+    lastIndex = linkRe.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(stripBold(text.slice(lastIndex)));
+  }
+  return parts.length > 0 ? parts : stripBold(text);
 }
 
 function parseAbout(raw: string): Block[] {
@@ -110,7 +140,7 @@ export default function About({ content }: AboutProps) {
                         key={i}
                         className="text-slate-600 dark:text-slate-400 text-[15px] leading-relaxed"
                       >
-                        {b.text}
+                        {renderTextWithLinks(b.text)}
                       </p>
                     ) : (
                       <ul key={i} className="list-none space-y-1.5 pl-0">

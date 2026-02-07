@@ -1,5 +1,9 @@
 # Projects
 
+Summary: Jie Han's flagship work spans hackathons (AI onboarding agent), university projects (line-following buggy, quantum/Shor's), society robotics (Hackabot), and industry internships (Lattice Semiconductor, AMD).
+
+---
+
 ## AgentVerse Hackathon (UCL London, Nov 2025)
 
 Collaborated with a team of 6 to build an **AI onboarding agent** that answers FAQs, drafts HR/IT emails, and reduces manager workload. Integrated GitHub and Slack APIs to ground responses in current projects and organizational updates. Prototyped an Anam AI voice avatar for conversational onboarding. Produced and published a creative pitch video on YouTube to showcase the agent's capabilities.
@@ -27,6 +31,16 @@ Led a team of 5 and served as **lead coder** for a line-following buggy. Impleme
 **Tech**: Embedded C, PID control, microcontrollers, sensors, motors, VHDL/digital design (as per degree modules).
 
 **Outcomes**: End-to-end ownership from design to delivery; clear documentation and presentation; team leadership.
+
+---
+
+## Quantum algorithms – Shor's algorithm (University of Manchester, Sep 2025 – Jun 2026)
+
+**University of Manchester project** (Sep 2025 – Jun 2026, in progress). The methodology combines self-directed study of quantum computing foundations with practical hands-on experimentation. Theoretical work covers quantum gates, superposition, interference, and entanglement and how they enable quantum speed-up in **Shor's algorithm**. Implementation uses **Python** and the **Qiskit** quantum computing framework; circuits are designed from the standard Shor's formulation, with circuit diagrams for visualisation and to determine gate count and sequence. Measurement operations convert quantum states to classical outcomes for analysis. Circuits are tested on both **Qiskit simulators** and **real quantum hardware** on IBM's online platform. A classical counterpart in Python acts as a baseline. Performance metrics include total execution time, resources (qubits, circuit depth, total gates), and scalability as problem size increases. A report is expected to be finished by **June 2026**.
+
+**Tech**: Python, Qiskit, IBM Quantum platform, quantum algorithms, number theory.
+
+**Outcomes**: Blended learning (theory + implementation); design, simulation, and execution on IBM hardware; comparison with classical baseline; report in progress (June 2026).
 
 ---
 

@@ -51,11 +51,11 @@ export default function Hero() {
           variants={item}
           className="text-slate-600 dark:text-slate-400 max-w-2xl mb-8"
         >
-          I combine a rigorous analytical approach with creative problem-solving
-          to enhance workflows and optimize embedded systems. Experienced in
-          leading cross-functional teams and communicating technical results to
-          stakeholders. Eager to leverage a fast-learning mindset in a 2026
-          graduate engineering role.
+          I combine rigorous engineering with practical delivery: from silicon
+          validation and embedded systems to AI agents and quantum algorithms.
+          Experienced in leading teams, writing design docs, and shipping
+          end-to-end. Eager to bring a fast-learning mindset to a 2026 graduate
+          engineering role.
         </motion.p>
         <motion.div variants={item} className="flex flex-wrap gap-3">
           <Link

@@ -26,7 +26,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-slate-600 dark:text-slate-400 mb-10"
         >
-          Flagship work: hackathons, internships, and university projects.
+          Hackathons, internships, university projects, and ongoing work—with links to reports and demos where available.
         </motion.p>
         <div className="flex flex-col gap-10">
           {projects.map((project, i) => (

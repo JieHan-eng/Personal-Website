@@ -5,40 +5,52 @@ import { SECTION_IDS } from "@/lib/constants";
 
 const HIGHLIGHTS: { period: string; title: string; org?: string; bullets?: string[] }[] = [
   {
+    period: "Sep 2025 – Jun 2026",
+    title: "Quantum algorithms – Shor's algorithm",
+    org: "University of Manchester · Solo project",
+    bullets: ["Theory: gates, superposition, entanglement", "Python + Qiskit; IBM quantum hardware", "Classical baseline & metrics; report expected June 2026"],
+  },
+  {
     period: "Nov 2025",
     title: "AgentVerse Hackathon",
-    org: "UCL London",
-    bullets: ["AI onboarding agent", "GitHub & Slack APIs", "Anam AI voice avatar", "Pitch video on YouTube"],
+    org: "UCL London · Team of 6",
+    bullets: ["AI onboarding agent: FAQs, HR/IT email drafts", "GitHub & Slack APIs, Anam AI voice avatar", "Pitch video on YouTube"],
   },
   {
     period: "Jun – Sept 2025",
     title: "Lattice Semiconductor",
-    org: "Internship · DDR IP",
-    bullets: ["LPDDR4/DDR3 support", "Pin assignment automation", "Critical bug fixes"],
-  },
-  {
-    period: "Mar 2024 – Mar 2025",
-    title: "Hackabot",
-    org: "Robosoc Society Manchester",
-    bullets: ["2024: Two bots, collaborative maze mapping", "2025: CV-based sensor-less navigation", "Vibe coding"],
-  },
-  {
-    period: "Jun – Sept 2024",
-    title: "AMD",
-    org: "Internship",
-    bullets: ["PCIe extraction (Bash)", "Register comparison (Python)", "Workflow integration"],
+    org: "Internship, Penang · DDR IP",
+    bullets: ["LPDDR4/DDR3 software IP support", "Pin assignment automation; example project restructure", "Critical DDR3 bug fixes ahead of release"],
   },
   {
     period: "Sep 2024 – Jun 2025",
     title: "Line-following buggy",
-    org: "University of Manchester",
-    bullets: ["Lead coder, team of 5", "PID on MCU", "Design docs, test plans, pitch"],
+    org: "University of Manchester · Lead coder, team of 5",
+    bullets: ["PID control on MCU; design to delivery", "Design docs, test plans, final report; stakeholder presentation", "Chassis, sensors, motors, wiring; budget & pitch"],
   },
   {
-    period: "Education",
+    period: "Mar 2024 – Mar 2025",
+    title: "Hackabot",
+    org: "Robosoc Society Manchester · Team of 4",
+    bullets: ["2024: Two bots, collaborative maze mapping (onboard sensors)", "2025: Computer-vision sensor-less navigation", "Vibe coding, rapid iteration"],
+  },
+  {
+    period: "Jun – Sept 2024",
+    title: "AMD",
+    org: "Internship, Penang · PCIe & register tooling",
+    bullets: ["PCIe capability extraction (Bash on Linux)", "Register comparison tool (Python); mismatch flagging", "Workflow integration; repeatability"],
+  },
+  {
+    period: "Sept 2023 – July 2026",
     title: "BEng Electronic Engineering",
-    org: "University of Manchester · First-Class track to July 2026",
-    bullets: ["Year 1: 88%, Year 2: 81%", "A-Levels: 1A* & 3A's (KYUEM, Malaysia)"],
+    org: "University of Manchester · First-Class track",
+    bullets: ["Year 1: 88%, Year 2: 81%", "Modules: VHDL, Embedded C, Computer Architecture, DSP, Control, High-Speed Digital", "A-Levels: 1A* & 3A's (KYUEM, Malaysia)"],
+  },
+  {
+    period: "Jul – Oct 2021",
+    title: "Volunteering",
+    org: "Selfless Together · Food Bank (CLOB86)",
+    bullets: ["Tutor: Mathematics & English (refugees); class planning", "Food bank: 4,500 recipients; $30k raised"],
   },
 ];
 
@@ -63,7 +75,7 @@ export default function Timeline() {
           viewport={{ once: true }}
           className="text-slate-600 dark:text-slate-400 mb-10"
         >
-          Hackathons, internships, and key milestones.
+          Education, internships, hackathons, and projects in order.
         </motion.p>
         <div className="relative space-y-0">
           <div className="absolute left-3 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-700" />

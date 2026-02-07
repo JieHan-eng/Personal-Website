@@ -33,6 +33,7 @@ npm run lint
 
 - **Without OpenAI**: The chat returns the most relevant snippets from `data/about.md` and `data/projects.md` (no hallucinations).
 - **With OpenAI**: Create `.env.local` and set `OPENAI_API_KEY=sk-...`. The API will use GPT-4o-mini with the same context and strict instructions to stay grounded.
+- **Keep costs minimal**: See **[docs/OPENAI_BUDGET.md](docs/OPENAI_BUDGET.md)** for budget limits, alerts, and optional `OPENAI_CHAT_MAX_TOKENS`.
 
 ## Deploy to the web (so recruiters can access it)
 

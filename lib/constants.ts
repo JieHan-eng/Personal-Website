@@ -1,7 +1,7 @@
 // ========== PERSONALIZE: Update these with your details ==========
 export const SITE = {
   name: "Jie Han Oh",
-  headline: "Dynamic Engineer — Silicon validation, AI agents, autonomous robotics.",
+  headline: "Dynamic Engineer — Silicon validation, AI agents, embedded systems, quantum algorithms.",
   email: "oh.jie.han@gmail.com",
   location: "Manchester, UK",
   linkedin: "https://linkedin.com/in/jie-han-oh-767a172a5/",

@@ -2,6 +2,8 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 const OPENAI_MODEL = "gpt-4o-mini";
+// Optional: set OPENAI_CHAT_MAX_TOKENS (e.g. 256) in .env.local to lower cost per reply (default 500)
+const MAX_TOKENS = Math.min(2000, Math.max(100, parseInt(process.env.OPENAI_CHAT_MAX_TOKENS ?? "500", 10) || 500));
 
 function loadKnowledge(): string {
   try {
@@ -22,10 +24,10 @@ const QUERY_EXPANSIONS: Record<string, string[]> = {
   nationality: ["nationality", "from", "country", "malaysia", "malaysian"],
   where: ["from", "location", "live", "manchester", "malaysia", "penang"],
   contact: ["email", "contact", "reach", "oh.jie.han"],
-  skills: ["skills", "tech", "programming", "c", "python", "vhdl"],
-  education: ["education", "university", "manchester", "degree", "beng"],
-  experience: ["experience", "intern", "amd", "lattice", "work"],
-  projects: ["projects", "hackathon", "agentverse", "hackabot", "buggy"],
+  skills: ["skills", "tech", "programming", "c", "python", "vhdl", "stack", "tools"],
+  education: ["education", "university", "manchester", "degree", "beng", "course"],
+  experience: ["experience", "intern", "amd", "lattice", "work", "did", "role", "job"],
+  projects: ["projects", "hackathon", "agentverse", "hackabot", "buggy", "line-following", "robot", "quantum", "shor", "algorithms"],
   volunteer: ["volunteer", "selfless", "food bank", "tutoring"],
 };
 
@@ -55,7 +57,7 @@ function scoreRelevance(text: string, query: string): number {
 }
 
 // Chunk by sections (## or ###) and return the best chunks. Always include the intro so general questions get answered.
-function getRelevantChunks(knowledge: string, query: string, maxChars = 5000): string {
+function getRelevantChunks(knowledge: string, query: string, maxChars = 6000): string {
   const sections = knowledge.split(/(?=^##\s)/m).filter(Boolean);
   const intro = sections[0] ?? "";
   const rest = sections.slice(1);
@@ -80,16 +82,20 @@ function getRelevantChunks(knowledge: string, query: string, maxChars = 5000): s
   return out || knowledge.slice(0, maxChars);
 }
 
+// Build a retrieval query from the last 2 user messages so follow-ups ("what about the tech?", "tell me more") get the right context.
+function buildRetrievalQuery(messages: { role: string; content: string }[]): string {
+  const userMessages = messages.filter((m) => m.role === "user").map((m) => m.content.trim()).filter(Boolean);
+  const lastTwo = userMessages.slice(-2);
+  return lastTwo.join(" ").trim() || "general background";
+}
+
 export interface ChatPayload {
   messages: { role: string; content: string }[];
 }
 
 export async function answerWithRag(payload: ChatPayload): Promise<string> {
   const knowledge = loadKnowledge();
-  const lastUser = payload.messages
-    .filter((m) => m.role === "user")
-    .pop();
-  const query = lastUser?.content?.trim() || "general background";
+  const query = buildRetrievalQuery(payload.messages);
   const context = getRelevantChunks(knowledge, query);
 
   const apiKey = process.env.OPENAI_API_KEY;
@@ -105,7 +111,7 @@ export async function answerWithRag(payload: ChatPayload): Promise<string> {
 Rules:
 - Base your answer ONLY on the context. Do not invent or assume any facts.
 - If the answer is not in the context, reply with exactly: "I'm unable to answer that based on the information on this website. Please email oh.jie.han@gmail.com for more details."
-- Keep answers concise and factual. Use a friendly, professional tone.`;
+- Keep answers concise and factual. Use a friendly, professional tone. Vary your phrasing naturally—do not repeat the same sentence structures for different questions.`;
       const res = await openai.chat.completions.create({
         model: OPENAI_MODEL,
         messages: [
@@ -115,7 +121,8 @@ Rules:
             content: m.content,
           })),
         ],
-        max_tokens: 500,
+        max_tokens: MAX_TOKENS,
+        temperature: 0.7,
       });
       const content = res.choices[0]?.message?.content?.trim();
       return content || unableMsg;
@@ -132,8 +139,7 @@ function fallbackAnswer(context: string, query: string): string {
   if (!context || context === "No knowledge base found.") {
     return "I'm unable to answer that based on the information on this website. Please email oh.jie.han@gmail.com for details.";
   }
-  // In fallback we don't have a model to judge relevance, so we return the best context we have.
-  // If the query has no keyword overlap, the context might be generic intro — still useful.
-  const snippet = context.slice(0, 2000);
-  return `Here’s relevant information from this website:\n\n${snippet}${context.length > 2000 ? "\n\n… (truncated)." : ""}\n\nIf this doesn’t answer your question, I'm unable to answer based on the information here. Please email oh.jie.han@gmail.com for more details.`;
+  // Context is already query-relevant from getRelevantChunks. Return a concise snippet.
+  const snippet = context.slice(0, 2200);
+  return `Here’s relevant information from this website:\n\n${snippet}${context.length > 2200 ? "\n\n…" : ""}\n\nIf this doesn’t For tailored answers, the site owner can enable the AI chat (OpenAI API). Otherwise, email oh.jie.han@gmail.com for more details.`;
 }

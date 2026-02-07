@@ -6,21 +6,21 @@ import { SECTION_IDS } from "@/lib/constants";
 const GROUPS: { title: string; items: string[] }[] = [
   {
     title: "Languages & tools",
-    items: ["C", "C++", "VHDL", "Matlab", "Python", "Bash"],
+    items: ["C", "C++", "VHDL", "Matlab", "Python", "Bash", "Qiskit"],
   },
   {
     title: "Platforms & hardware",
-    items: ["Altium", "Simulink", "Excel", "Soldering", "Unix / Linux"],
+    items: ["Unix / Linux", "Altium", "Simulink", "IBM Quantum", "Soldering", "Excel"],
   },
   {
     title: "Domains",
     items: [
-      "Digital systems design",
-      "Computer architecture",
+      "Embedded systems & PID control",
+      "Digital systems design & computer architecture",
       "DSP & control systems",
-      "PCIe / DDR",
-      "Fast prototyping",
-      "API integration",
+      "PCIe / DDR / silicon validation",
+      "Quantum algorithms (e.g. Shor's)",
+      "API integration & fast prototyping",
     ],
   },
 ];
@@ -46,8 +46,8 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-slate-600 dark:text-slate-400 mb-10"
         >
-          Relevant for hackathons: fast prototyping, APIs, integration, and
-          end-to-end ownership.
+          From embedded and silicon validation to quantum algorithms and
+          hackathon prototyping.
         </motion.p>
         <div className="grid sm:grid-cols-3 gap-6">
           {GROUPS.map((group, gi) => (
