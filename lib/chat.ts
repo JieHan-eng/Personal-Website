@@ -44,7 +44,7 @@ function expandQuery(query: string): string {
 function scoreRelevance(text: string, query: string): number {
   const expanded = expandQuery(query);
   const q = expanded.toLowerCase().replace(/\s+/g, " ").trim();
-  const words = [...new Set(q.split(/\s+/).filter((w) => w.length > 0))];
+  const words = Array.from(new Set(q.split(/\s+/).filter((w) => w.length > 0)));
   if (words.length === 0) return 0;
   const lower = text.toLowerCase();
   let score = 0;
