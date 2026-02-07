@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-accent: #0ea5e9;
+  --color-accent-muted: #38bdf8;
+  --background: #fafafa;
+  --foreground: #0f172a;
+}
+
+.dark {
+  --color-accent: #38bdf8;
+  --color-accent-muted: #7dd3fc;
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
+  }
+}
