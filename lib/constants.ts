@@ -5,7 +5,7 @@ export const SITE = {
   email: "oh.jie.han@gmail.com",
   location: "Manchester, UK",
   linkedin: "https://linkedin.com/in/jie-han-oh-767a172a5/",
-  github: "https://github.com/jiehanoh", // TODO: replace with your GitHub URL if different
+  github: "https://github.com/JieHan-eng",
   cvPath: "/cv",
 } as const;
 

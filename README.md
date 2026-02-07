@@ -93,6 +93,39 @@ git push
 
 Vercel will automatically rebuild and update the live site.
 
+### 6. Troubleshooting Vercel deployment
+
+**Build fails on Vercel**
+
+1. **Check the build log**  
+   In Vercel: your project → **Deployments** → click the failed deployment → open the **Building** log. The error message at the bottom usually says what went wrong.
+
+2. **Test the build locally**  
+   On your machine run:
+   ```bash
+   cd "c:\Users\User\Desktop\Job applications"
+   npm install
+   npm run build
+   ```
+   If this fails, fix the errors (e.g. TypeScript or missing files) then commit and push again.
+
+3. **Root Directory**  
+   In Vercel → **Settings** → **General** → **Root Directory** must be empty or `./` (this repo only has one app). If you put the app in a subfolder, set Root Directory to that folder (e.g. `Job applications`).
+
+4. **Node version**  
+   The project uses Node 18+. In Vercel → **Settings** → **General** → **Node.js Version** choose **18.x** or **20.x** if the dropdown is there.
+
+5. **“Module not found” or missing `data/`**  
+   Make sure `data/` and `public/` are committed to GitHub (they are not in `.gitignore`). Run `git status` and add any missing files:
+   ```bash
+   git add data public
+   git commit -m "Add data and public assets"
+   git push
+   ```
+
+6. **Re-import the repo**  
+   If the repo was connected before you pushed everything, in Vercel remove the project and **Add New** → **Project** → import the same GitHub repo again so it picks up the latest code.
+
 ---
 
 ## Checklist before going live
