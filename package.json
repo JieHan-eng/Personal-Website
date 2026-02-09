@@ -12,6 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/groq": "^3.0.22",
+    "ai": "^6.0.77",
     "framer-motion": "^11.11.17",
     "next": "14.2.18",
     "next-themes": "^0.4.3",

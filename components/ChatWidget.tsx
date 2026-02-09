@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Message } from "@/types";
+import { CHAT_SYSTEM_MESSAGE } from "@/lib/constants";
 
 interface ChatWidgetProps {
   userName: string;

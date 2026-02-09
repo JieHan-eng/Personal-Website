@@ -1,6 +1,6 @@
 # About Jie Han Oh
 
-I'm **Jie Han Oh**, from **Malaysia**. I'm an Electronic Engineer from the **University of Manchester**, on track for First-Class Honours (Year 1: 88%, Year 2: 81%).
+I'm **Jie Han Oh**, from **Malaysia**. I'm an Electronic Engineer from the **University of Manchester**, on track for First-Class Honours.
 
 ## Summary
 

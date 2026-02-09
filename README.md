@@ -6,7 +6,7 @@ A single-page portfolio site for hackathon applications and tech roles, with an 
 
 - **Next.js 14** (App Router), **TypeScript**, **Tailwind CSS**
 - **Framer Motion** for animations, **next-themes** for dark mode
-- **Chat**: RAG-lite over `data/about.md` and `data/projects.md`; optional OpenAI (GPT-4o-mini) when `OPENAI_API_KEY` is set
+- **Chat**: RAG-lite over `data/about.md` and `data/projects.md`; optional **Groq** (free, Vercel AI SDK) or **OpenAI** when `GROQ_API_KEY` or `OPENAI_API_KEY` is set
 
 ## Commands
 
@@ -31,9 +31,11 @@ npm run lint
 
 ## AI chat
 
-- **Without OpenAI**: The chat returns the most relevant snippets from `data/about.md` and `data/projects.md` (no hallucinations).
-- **With OpenAI**: Create `.env.local` and set `OPENAI_API_KEY=sk-...`. The API will use GPT-4o-mini with the same context and strict instructions to stay grounded.
+- **Without OpenAI**: The chat returns the most relevant snippets from `data/about.md` and `data/projects.md` (no hallucinations). A “digital twin” intro message sets the tone.
+- **With OpenAI**: Create `.env.local` and set `OPENAI_API_KEY=sk-...`. The API will use GPT-4o-mini with the same context and a personality prompt (“Jie Han’s digital twin”, expert on 2024–2026 roadmap).
+- **Personality**: Edit `CHAT_SYSTEM_MESSAGE` in `lib/constants.ts` to change the intro and twin persona.
 - **Keep costs minimal**: See **[docs/OPENAI_BUDGET.md](docs/OPENAI_BUDGET.md)** for budget limits, alerts, and optional `OPENAI_CHAT_MAX_TOKENS`.
+- **Free-tier option**: Using a free AI tier (e.g. **Vercel AI SDK** with **Groq** or **Together AI** for Llama/Mixtral free credits) is viable: you’d keep this RAG + UI and swap the provider in `lib/chat.ts`. Services like Chatbase/Mendable offer ~10–20 free messages/month but replace the widget; the SDK approach keeps your chat and adds a free model.
 
 ## Deploy to the web (so recruiters can access it)
 

@@ -1,7 +1,10 @@
 import { readFileSync } from "fs";
 import { join } from "path";
+import { generateText } from "ai";
+import { groq } from "@ai-sdk/groq";
 
 const OPENAI_MODEL = "gpt-4o-mini";
+const GROQ_MODEL = "llama-3.1-8b-instant";
 // Optional: set OPENAI_CHAT_MAX_TOKENS (e.g. 256) in .env.local to lower cost per reply (default 500)
 const MAX_TOKENS = Math.min(2000, Math.max(100, parseInt(process.env.OPENAI_CHAT_MAX_TOKENS ?? "500", 10) || 500));
 
@@ -98,24 +101,56 @@ export async function answerWithRag(payload: ChatPayload): Promise<string> {
   const query = buildRetrievalQuery(payload.messages);
   const context = getRelevantChunks(knowledge, query);
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const groqKey = process.env.GROQ_API_KEY;
+  const openaiKey = process.env.OPENAI_API_KEY;
   const unableMsg =
     "I'm unable to answer that based on the information on this website. Please email oh.jie.han@gmail.com for more details.";
 
-  if (apiKey) {
-    try {
-      const { default: OpenAI } = await import("openai");
-      const openai = new OpenAI({ apiKey });
-      const sys = `You are a helpful assistant that answers questions about the portfolio owner (Jie Han Oh) using ONLY the provided context below.
+  const personality =
+    "You are Jie Han's digital twin. You say: \"I'm running on a lightweight model to keep costs low, but I'm an expert on his 2024–2026 roadmap.\" Answer in first person as his twin, friendly and direct.";
+  const rules = `
+You answer questions about Jie Han Oh using ONLY the provided context below.
 
 Rules:
+- Be quick and direct: give a short, summarized answer (1–3 sentences, or a brief bullet list only when the question asks for several items). Never copy-paste long blocks from the context—paraphrase and condense.
 - Base your answer ONLY on the context. Do not invent or assume any facts.
 - If the answer is not in the context, reply with exactly: "I'm unable to answer that based on the information on this website. Please email oh.jie.han@gmail.com for more details."
-- Keep answers concise and factual. Use a friendly, professional tone. Vary your phrasing naturally—do not repeat the same sentence structures for different questions.`;
+- Use a friendly, professional tone. Get to the point fast; avoid filler or repeating the question back.`;
+  const fullSystem = `${personality}${rules}\n\n---\nContext:\n${context}`;
+
+  const messages = payload.messages
+    .filter((m) => m.role === "user" || m.role === "assistant")
+    .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }));
+
+  // Prefer Groq (free tier) when GROQ_API_KEY is set
+  if (groqKey) {
+    try {
+      const { text } = await generateText({
+        model: groq(GROQ_MODEL),
+        system: fullSystem,
+        messages,
+        maxOutputTokens: MAX_TOKENS,
+        temperature: 0.7,
+      });
+      return text?.trim() || unableMsg;
+    } catch (err) {
+      console.error("Groq error:", err);
+      if (openaiKey) {
+        // Fall through to OpenAI
+      } else {
+        return fallbackAnswer(context, query);
+      }
+    }
+  }
+
+  if (openaiKey) {
+    try {
+      const { default: OpenAI } = await import("openai");
+      const openai = new OpenAI({ apiKey: openaiKey });
       const res = await openai.chat.completions.create({
         model: OPENAI_MODEL,
         messages: [
-          { role: "system", content: sys + "\n\n---\nContext:\n" + context },
+          { role: "system", content: fullSystem },
           ...payload.messages.map((m) => ({
             role: m.role as "user" | "assistant" | "system",
             content: m.content,
@@ -141,5 +176,5 @@ function fallbackAnswer(context: string, query: string): string {
   }
   // Context is already query-relevant from getRelevantChunks. Return a concise snippet.
   const snippet = context.slice(0, 2200);
-  return `Here’s relevant information from this website:\n\n${snippet}${context.length > 2200 ? "\n\n…" : ""}\n\nIf this doesn’t For tailored answers, the site owner can enable the AI chat (OpenAI API). Otherwise, email oh.jie.han@gmail.com for more details.`;
+  return `Here’s relevant information from this website:\n\n${snippet}${context.length > 2200 ? "\n\n…" : ""}\n\nIf this doesn’t fully answer your question, email oh.jie.han@gmail.com for more details.`;
 }

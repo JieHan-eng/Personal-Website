@@ -44,7 +44,7 @@ const HIGHLIGHTS: { period: string; title: string; org?: string; bullets?: strin
     period: "Sept 2023 – July 2026",
     title: "BEng Electronic Engineering",
     org: "University of Manchester · First-Class track",
-    bullets: ["Year 1: 88%, Year 2: 81%", "Modules: VHDL, Embedded C, Computer Architecture, DSP, Control, High-Speed Digital", "A-Levels: 1A* & 3A's (KYUEM, Malaysia)"],
+    bullets: ["Modules: VHDL, Embedded C, Computer Architecture, DSP, Control, High-Speed Digital", "A-Levels: 1A* & 3A's (KYUEM, Malaysia)"],
   },
   {
     period: "Jul – Oct 2021",

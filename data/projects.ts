@@ -19,7 +19,7 @@ export const projects: Project[] = [
       "Anam AI voice avatar for conversational onboarding.",
       "Pitch video on YouTube showcasing capabilities.",
     ],
-    image: "/agentverse-team.png",
+    image: "/agentverse-team.jpg",
     video: "/AI-Onboarding-Agent.mov",
     videoPortrait: true,
   },
