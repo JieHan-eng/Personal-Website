@@ -9,9 +9,9 @@ export const SITE = {
   cvPath: "/cv",
 } as const;
 
-/** Intro/personality for the chat (digital twin). Shown when chat opens and used when an AI API is available. */
+/** Intro/personality for the chat (digital twin). Shown when chat opens. */
 export const CHAT_SYSTEM_MESSAGE =
-  "Hi, I'm Jie Han's digital twin. I'm running on a lightweight setup to keep costs low, but I'm an expert on his 2024–2026 roadmap. Ask me anything about his work, education, or projects.";
+  "I'm Jie Han's digital twin. Ask me about his projects, internships at AMD and Lattice, skills, or anything on this portfolio.";
 
 export const SECTION_IDS = {
   hero: "hero",

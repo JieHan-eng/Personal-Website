@@ -88,20 +88,19 @@ export default function ChatWidget({ userName }: ChatWidgetProps) {
                 my portfolio.
               </p>
             </div>
-            <div className="flex-1 overflow-y-auto p-3 space-y-3 min-h-[200px]">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden p-3 space-y-3 min-h-[200px] min-w-0">
               {messages.length === 0 && (
                 <p className="text-sm text-slate-500 dark:text-slate-400">
-                  e.g. &quot;What did you do at AMD?&quot; or &quot;Tell me about
-                  your hackathon project.&quot;
+                  {CHAT_SYSTEM_MESSAGE}
                 </p>
               )}
               {messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  className={`flex min-w-0 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
+                    className={`max-w-[85%] min-w-0 rounded-lg px-3 py-2 text-sm break-words [overflow-wrap:anywhere] ${
                       msg.role === "user"
                         ? "bg-accent text-white"
                         : "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
@@ -120,7 +119,7 @@ export default function ChatWidget({ userName }: ChatWidgetProps) {
               )}
               <div ref={bottomRef} />
             </div>
-            <div className="p-3 border-t border-slate-200 dark:border-slate-700 flex gap-2">
+            <div className="flex-shrink-0 p-3 border-t border-slate-200 dark:border-slate-700 flex gap-2">
               <input
                 type="text"
                 value={input}
