@@ -29,12 +29,12 @@ export default function Home() {
     <main className="min-h-screen">
       <Nav />
       <Hero />
-      <About content={aboutContent} />
       <Projects />
-      <Skills />
-      <Timeline />
       <Recommendations />
       <Volunteering />
+      <About content={aboutContent} />
+      <Skills />
+      <Timeline />
       <Contact />
       <ChatWidget userName={SITE.name} />
     </main>

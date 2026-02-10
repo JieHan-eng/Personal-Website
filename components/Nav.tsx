@@ -7,12 +7,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SITE, SECTION_IDS } from "@/lib/constants";
 
 const SECTIONS = [
-  { id: SECTION_IDS.about, label: "About" },
   { id: SECTION_IDS.projects, label: "Projects" },
+  { id: SECTION_IDS.recommendations, label: "Recommendations" },
+  { id: SECTION_IDS.volunteering, label: "Community" },
+  { id: SECTION_IDS.about, label: "About" },
   { id: SECTION_IDS.skills, label: "Skills" },
   { id: SECTION_IDS.highlights, label: "Highlights" },
-  { id: SECTION_IDS.recommendations, label: "Recommendations" },
-  { id: SECTION_IDS.volunteering, label: "Volunteering" },
   { id: SECTION_IDS.contact, label: "Contact" },
 ];
 
