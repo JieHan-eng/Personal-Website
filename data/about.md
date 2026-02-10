@@ -1,33 +1,33 @@
 # About Jie Han Oh
 
-I'm **Jie Han Oh**, from **Malaysia**. I'm an Electronic Engineer from the **University of Manchester**, on track for First-Class Honours.
+**Jie Han Oh** is from **Malaysia** and is an Electronic Engineer from the **University of Manchester**, on track for First-Class Honours.
 
 ## Summary
 
 Dynamic and innovative Engineer with a diverse portfolio: Silicon validation, AI agents, and autonomous robotics.
 
-I combine a rigorous analytical approach with creative problem-solving to enhance workflows and optimize embedded systems. Experienced in leading cross-functional teams and communicating technical results to stakeholders. Eager to leverage a fast-learning mindset in a 2026 graduate engineering role.
+Combines a rigorous analytical approach with creative problem-solving to enhance workflows and optimize embedded systems. Experienced in leading cross-functional teams and communicating technical results to stakeholders. Eager to leverage a fast-learning mindset in a 2026 graduate engineering role.
 
 ## Background
 
-I've interned at **Lattice Semiconductor** and **AMD** (both in Penang, Malaysia).
+Completed internships at **Lattice Semiconductor** and **AMD** (both in Penang, Malaysia).
 
-At Lattice: DDR IP support, pin assignment automation, and critical bug fixes. At AMD: PCIe capability extraction and register comparison tools. I use Bash, Python, Embedded C, and Unix/Linux to streamline diagnostics and development workflows.
+At Lattice: DDR IP support, pin assignment automation, and critical bug fixes. At AMD: PCIe capability extraction and register comparison tools. Uses Bash, Python, Embedded C, and Unix/Linux to streamline diagnostics and development workflows.
 
-## What I like to build
+## Focus areas
 
 - **Embedded systems** — Firmware, PID control, sensor integration, hardware–software co-design.
 - **Automation & tooling** — Scripts and tools that reduce manual steps (e.g. PCIe extraction, pin assignment, register validation).
 - **Quantum computing** — Self-directed study and implementation (e.g. Shor's algorithm with Qiskit and IBM Quantum).
 - **Hackathon projects** — AI agents, API integrations (GitHub, Slack), and quick end-to-end prototypes.
 
-## Why I'm different
+## Differentiators
 
-I combine **rigorous engineering** (digital systems, computer architecture, DSP, control systems) with **practical delivery**.
+Combines **rigorous engineering** (digital systems, computer architecture, DSP, control systems) with **practical delivery**.
 
-I've led teams, written design docs and test plans, and coordinated workflows. I'm comfortable in low-level embedded work and higher-level integration—so I can own a problem from idea to shipped solution.
+Has led teams, authored design docs and test plans, and coordinated workflows. Comfortable in low-level embedded work and higher-level integration—able to own a problem from idea to shipped solution.
 
-I also lean into **vibe coding** and AI-assisted development: I use modern tools (Copilot, LLMs, quick iteration loops) to speed up firmware, scripting, and documentation without sacrificing correctness. I treat AI as a force multiplier for hardware and embedded work—rapid prototyping, clearer docs, and faster debug—while still doing the deep thinking and validation myself. That mix of traditional engineering discipline and modern tooling is what I bring to a 2026 graduate role.
+Leverages **vibe coding** and AI-assisted development: uses modern tools (Copilot, LLMs, quick iteration loops) to accelerate firmware, scripting, and documentation without sacrificing correctness. Treats AI as a force multiplier for hardware and embedded work—rapid prototyping, clearer docs, and faster debug—while retaining deep thinking and validation. This mix of traditional engineering discipline and modern tooling defines his approach to a 2026 graduate role.
 
 ## Education
 

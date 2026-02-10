@@ -51,9 +51,9 @@ export default function Hero() {
           variants={item}
           className="text-slate-600 dark:text-slate-400 max-w-2xl mb-8"
         >
-          I combine rigorous engineering with practical delivery: from silicon
+          Combines rigorous engineering with practical delivery: from silicon
           validation and embedded systems to AI agents and quantum algorithms.
-          Experienced in leading teams, writing design docs, and shipping
+          Experienced in leading teams, authoring design docs, and shipping
           end-to-end. Eager to bring a fast-learning mindset to a 2026 graduate
           engineering role.
         </motion.p>

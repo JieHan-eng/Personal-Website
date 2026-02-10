@@ -11,7 +11,7 @@ const ENTRIES = [
     duration: "4 mos",
     cause: "Children",
     description:
-      "Selfless Together is a non-governmental organization that helps provide basic necessities for refugees mainly from Myanmar. I volunteered to teach Mathematics and English to refugee kids (ages 7–9) by virtual class, and personally planned out the classes and materials. A reference letter from the founder is in the Recommendations section.",
+      "Selfless Together is a non-governmental organization that helps provide basic necessities for refugees mainly from Myanmar. Taught Mathematics and English to refugee children (ages 7–9) in virtual classes; planned classes and materials. A reference letter from the founder is in the Recommendations section.",
     link: null as string | null,
   },
   {
@@ -21,7 +21,7 @@ const ENTRIES = [
     duration: "2 mos",
     cause: "Poverty Alleviation",
     description:
-      "Helped to distribute food to 4,500 recipients over a period of 10 days and raised a total of $30,000 worth of donations.",
+      "Distributed food to 4,500 recipients over 10 days; contributed to raising $30,000 in donations.",
     note: "Chung Ling Old Boys reunite after 35 years to help the hungry",
     link: "https://www.freemalaysiatoday.com/category/leisure/2021/07/31/chung-ling-old-boys-reunite-after-35-years-to-help-the-hungry",
   },
