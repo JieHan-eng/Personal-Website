@@ -13,6 +13,14 @@ const LETTERS = [
     href: "/recommendation-amd.png",
   },
   {
+    id: "lattice",
+    title: "Lattice Semiconductor — Internship recommendation",
+    subtitle: "DDR Technology Team, Penang",
+    summary:
+      "Recommendation letter from the Lattice internship (Jun–Sept 2025): DDR IP support, pin assignment automation, example project restructuring, and critical bug fixes in DDR3 IP.",
+    href: "/recommendation-lattice.pdf",
+  },
+  {
     id: "selfless",
     title: "SelflessTogether — Volunteer tutoring reference",
     subtitle: "Dr. Lim Yew Lyn, Founder (Nov 2022)",
